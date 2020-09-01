@@ -3,6 +3,8 @@
 
     ul{
         position: relative;
+        left:50%;
+        margin-left:1920/2 +px;
         li{
             @include posLT;
             opacity: 0;
@@ -10,11 +12,12 @@
                opacity: 1;
              }
            }
-       
     }
     ol{
         li{
-        &.active{}
+            height:20px;
+            width:20px;
+        // &.active{}
         }
     }
 }
