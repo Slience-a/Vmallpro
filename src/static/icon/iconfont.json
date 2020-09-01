@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "56998",
+      "name": "天猫-七天退货",
+      "font_class": "tianmaoqitiantuihuo",
+      "unicode": "f0079",
+      "unicode_decimal": 983161
+    },
+    {
+      "icon_id": "56999",
+      "name": "天猫-全国联保",
+      "font_class": "tianmaoquanguolianbao",
+      "unicode": "f007a",
+      "unicode_decimal": 983162
+    },
+    {
+      "icon_id": "908544",
+      "name": "免运费",
+      "font_class": "mianyunfei",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "10718149",
+      "name": "品质保证 Quality",
+      "font_class": "pinzhibaozhengQuality",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    }
+  ]
+}
