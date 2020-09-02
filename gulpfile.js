@@ -24,12 +24,6 @@ function webServerTask (){
              livereload : true
          }));
 }
-function watchTask(){//监听文件变化 同步到dist 文件下
-    watch('./src/view/**',fileIncludeTask);
-    watch('./src/css/**',sassTask);
-    watch('./src/static/**',staticTask);
-
-}
 function sassTask(){
     return src('./src/css/*.scss')
          .pipe(sass())
@@ -39,10 +33,30 @@ function staticTask(){
     return src ('./src/static/**')
            .pipe(dest('./dist/static'));
 }
+function libTask(){
+    return src('./src/lib/**')
+            .pipe(dest('./dist/lib'));
+}
+function apiTask(){
+    return src('./src/api/**')
+            .pipe(dest('./dist/api'));
+}
+function jsTask(){
+    return src('./src/js/**')
+           .pipe(dest('./dist/js'));
+}
+function watchTask(){//监听文件变化 同步到dist 文件下
+    watch('./src/view/**',fileIncludeTask);
+    watch('./src/css/**',sassTask);
+    watch('./src/static/**',staticTask);
+    watch('./src/lib/**',libTask);
+    watch('./src/api/**',apiTask);
+    watch('./src/js/**',jsTask);
+}
 module.exports = {
     //开发环境的命令
-    dev : series(cleanTask,parallel(fileIncludeTask,sassTask,staticTask),parallel(webServerTask,watchTask)),
+    dev : series(cleanTask,parallel(fileIncludeTask,sassTask,staticTask,libTask,apiTask,jsTask),parallel(webServerTask,watchTask)),
     //生产环境下的命令
-    build : series(cleanTask,) 
+    build : series(cleanTask) 
    
 }

@@ -15,10 +15,7 @@
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-file-include": "^2.2.2",
-<<<<<<< HEAD
     "gulp-sass": "^4.1.0",
-=======
->>>>>>> 1ff354f63e6676a5153b9ff66faa4cbac7b107a2
     "gulp-webserver": "^0.9.1"
   }
 }
