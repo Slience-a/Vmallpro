@@ -6,7 +6,7 @@ requirejs.config({
 });
 
 //首页的具体业务流程，拿到首页要用到的数据。
-define(['jquery','../api/server' , './modules/banner' , ],function($ , { getBanner2Data , getDetailData } , initBanner , ){
+define(['jquery','../api/server' , './modules/banner' , './modules/cartStorage'],function($ , { getBanner2Data , getDetailData } , initBanner ,{addCartStorage} ){
     //console.log( $ );
 
     var type = location.search.match(/type=([^&]+)/)[1];
@@ -146,12 +146,12 @@ define(['jquery','../api/server' , './modules/banner' , ],function($ , { getBann
             }
         });
     }
-
-    function addCartFn(res){   //添加购物车功能
-        var $detail_message_cart = $detail.find('.detail_message_cart');
-        $detail_message_cart.click(function(){
-            var $detail_message_box = $detail.find('.detail_message_box').filter('.active');
-            var $detail_message_num = $detail.find('.detail_message_num input');
+   function addCartFn(res){
+       var $detail_message_cart = $detail.find('.detail_message_cart');
+       $detail_message_cart.click(function(){
+        var $detail_message_box = $detail.find('.detail_message_box').filter('.active');
+        var $detail_message_num = $detail.find('.detail_message_num input');
+        // alert($detail_message_box.html())
             //添加的数据？
             /* {
                 goodsChecked : true,
@@ -169,12 +169,13 @@ define(['jquery','../api/server' , './modules/banner' , ],function($ , { getBann
                 goodsNumber : Number($detail_message_num.val()),
                 goodsId : res.goodsId
             };
-            //console.log(data);
             addCartStorage(data,function(){
-                alert('购物车添加成功！');
+                alert('购物车添加成功');
             });
-        });
-    }
+       })
+   }
+
+
 
     getBanner2Data().then((res)=>{
         initBanner(res);
